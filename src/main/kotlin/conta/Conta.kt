@@ -10,4 +10,5 @@ open class Conta {
     var cpf: String? = null
     var endereco: String? = null
     var bloqueio: Boolean = false
+    var estado: String? = null
 }
