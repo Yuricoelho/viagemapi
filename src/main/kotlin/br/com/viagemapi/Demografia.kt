@@ -1,4 +1,4 @@
-package conta.investimento
+package br.com.viagemapi
 
 import kotlin.random.Random
 

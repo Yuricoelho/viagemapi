@@ -1,4 +1,4 @@
-package conta.investimento
+package br.com.viagemapi
 
 class Itinerario {
     var origem: String? = null

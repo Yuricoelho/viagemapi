@@ -1,30 +1,29 @@
 package servidor
 
-import Banco
-import conta.Deposito
-import conta.corrente.ContaCorrente
+import Viagem
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.gson.*
 import io.ktor.html.*
 import io.ktor.request.*
-import io.ktor.response.*
 import io.ktor.routing.*
 import kotlinx.html.*
 import org.slf4j.event.Level
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
-val banco = Banco()
+val viagem = Viagem()
 
 /**
  * Configura um módulo do servidor. Cada módulo pode ter vários endpoints (endereços) e podem ser
  * "anexados" ao servidor pelas configurações do arquivo "application.conf" na pasta RESOURCES do
  * projeto.
  */
+
+
 @Suppress("unused")
 @kotlin.jvm.JvmOverloads
-fun Application.banco(testing: Boolean = false) {
+fun Application.viagem(testing: Boolean = false) {
     /**
      * Configura o servidor para "imprimir" no log as mensagens e textos do servidor
      */
@@ -49,9 +48,7 @@ fun Application.banco(testing: Boolean = false) {
      */
     routing {
         meuindex()
-        cadastraContaCorrente()
-        depositar()
-        listarContas()
+        //cadastraContaCorrente()
     }
 }
 
@@ -72,24 +69,10 @@ fun Route.meuindex() {
     }
 }
 
-fun Route.cadastraContaCorrente() {
-    post("/contas/corrente"){
-        val contaParaCriar: ContaCorrente = call.receive<ContaCorrente>()
-        val contaAberta = banco.abrirContaCorrente(contaParaCriar.titular!!, contaParaCriar.cpf!!, contaParaCriar.endereco!!)
-        call.respond(contaAberta)
-    }
-}
-
-fun Route.depositar() {
-    post("/contas/corrente/depositar"){
-        val deposito = call.receive<Deposito>()
-        banco.depositar(deposito.agencia, deposito.conta, deposito.valor)
-        call.respondText { "DEPÓSITO EFETUADO COM SUCESSO" }
-    }
-}
-
-fun Route.listarContas() {
-    get("/contas") {
-        call.respond(banco.contasCorrente)
-    }
-}
+//fun Route.inserirItinerario() {
+//    post("/itinerario"){
+//        val itinerario: Itinerario = call.receive<Itinerario>()
+//        val criandoItinerario = viagem.(contaParaCriar.titular!!, contaParaCriar.cpf!!, contaParaCriar.endereco!!)
+//        call.respond(contaAberta)
+//    }
+//}
