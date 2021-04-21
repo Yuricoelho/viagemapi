@@ -7,6 +7,7 @@ import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.gson.*
 import io.ktor.html.*
+import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -66,9 +67,9 @@ fun Route.meuindex() {
                 p { +"Tente chamar os outros endpoints para executar operações" }
                 ul {
                     ol { +"POST - /viagens/itinerario        - inserir itinerario" }
-                    ol { +"GET - /dados                      - Listar a situação daquele estado na pandemia"}
-                    ol { +"DELETE - /deletar                 - Deletar dados"}
-                    ol { +"PUT - /atualizar                  - Atualilzar dados"}
+                    ol { +"GET - /dados                      - Listar a situação daquele estado na pandemia" }
+                    ol { +"DELETE - /deletar                 - Deletar dados" }
+                    ol { +"PUT - /atualizar                  - Atualilzar dados" }
                 }
             }
         }
@@ -76,9 +77,14 @@ fun Route.meuindex() {
 }
 
 fun Route.inserirItinerario() {
-    post("/viagens/itinerario"){
+    post("/viagens/itinerario") {
         val itinerario: Itinerario = call.receive<Itinerario>()
-        val criandoItinerario = viagem.inserirItinerario(itinerario.origem!!, itinerario.destino!!, itinerario.dataIda!!, itinerario.dataVolta!!)
+        val criandoItinerario = viagem.inserirItinerario(
+            itinerario.origem!!,
+            itinerario.destino!!,
+            itinerario.dataIda!!,
+            itinerario.dataVolta!!
+        )
         call.respond(criandoItinerario)
     }
 }
@@ -89,13 +95,19 @@ fun Route.listarDados() {
     }
 }
 
-fun Route.deletarDados(){
-    delete("/deletar") {
-        call.respond(viagem.dados)
+fun Route.deletarDados() {
+    delete("/deletar/{id}") {
+        //call.respond(viagem.dados)
+        val destino = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
+        if (viagem.dados.removeIf { it.destino == destino }) {
+            call.respondText("Customer removed correctly", status = HttpStatusCode.Accepted)
+        } else {
+            call.respondText("Not Found", status = HttpStatusCode.NotFound)
+        }
     }
 }
 
-fun Route.atualizar(){
+fun Route.atualizar() {
     put("/atualizar") {
         call.respond(viagem.dados)
     }
