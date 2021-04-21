@@ -67,6 +67,8 @@ fun Route.meuindex() {
                 ul {
                     ol { +"POST - /viagens/itinerario        - inserir itinerario" }
                     ol { +"GET - /dados                      - Listar a situação daquele estado na pandemia"}
+                    ol { +"DELETE - /deletar                 - Deletar dados"}
+                    ol { +"PUT - /atualizar                  - Atualilzar dados"}
                 }
             }
         }
