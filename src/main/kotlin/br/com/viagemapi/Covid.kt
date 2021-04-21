@@ -1,5 +1,9 @@
 package br.com.viagemapi
 
-class Covid {
-    var qtdPessoasVacinadas: Int = 10000
+import kotlin.random.Random
+
+open class Covid {
+    var qtdPessoasVacinadas: Int? = null
+    var qtdPessoasInfectadas: Int? = null
+    var qtdLeitosOcupados: Int? = null // porcentagem
 }

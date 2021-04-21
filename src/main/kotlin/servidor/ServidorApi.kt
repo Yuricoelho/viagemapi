@@ -1,11 +1,14 @@
 package servidor
 
+
 import Viagem
+import br.com.viagemapi.Itinerario
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.gson.*
 import io.ktor.html.*
 import io.ktor.request.*
+import io.ktor.response.*
 import io.ktor.routing.*
 import kotlinx.html.*
 import org.slf4j.event.Level
@@ -48,7 +51,10 @@ fun Application.viagem(testing: Boolean = false) {
      */
     routing {
         meuindex()
-        //cadastraContaCorrente()
+        inserirItinerario()
+        listarDados()
+        deletarDados()
+        atualizar()
     }
 }
 
@@ -56,23 +62,39 @@ fun Route.meuindex() {
     get("/") {
         call.respondHtml {
             body {
-                h1 { +"API de Banco 1.0" }
+                h1 { +"API de Viagem 1.0" }
                 p { +"Tente chamar os outros endpoints para executar operações" }
                 ul {
-                    ol { +"POST - /contas/corrente        - Cria conta corrente" }
-                    ol { +"POST - /contas/poupanca        - Cria conta poupança" }
-                    ol { +"POST - /contas/investimento    - Cria conta investimento" }
-                    ol { +"GET - /contas                  - Listar todas as contas"}
+                    ol { +"POST - /viagens/itinerario        - inserir itinerario" }
+                    ol { +"GET - /dados                      - Listar a situação daquele estado na pandemia"}
                 }
             }
         }
     }
 }
 
-//fun Route.inserirItinerario() {
-//    post("/itinerario"){
-//        val itinerario: Itinerario = call.receive<Itinerario>()
-//        val criandoItinerario = viagem.(contaParaCriar.titular!!, contaParaCriar.cpf!!, contaParaCriar.endereco!!)
-//        call.respond(contaAberta)
-//    }
-//}
+fun Route.inserirItinerario() {
+    post("/viagens/itinerario"){
+        val itinerario: Itinerario = call.receive<Itinerario>()
+        val criandoItinerario = viagem.inserirItinerario(itinerario.origem!!, itinerario.destino!!, itinerario.dataIda!!, itinerario.dataVolta!!)
+        call.respond(criandoItinerario)
+    }
+}
+
+fun Route.listarDados() {
+    get("/dados") {
+        call.respond(viagem.dados)
+    }
+}
+
+fun Route.deletarDados(){
+    delete("/deletar") {
+        call.respond(viagem.dados)
+    }
+}
+
+fun Route.atualizar(){
+    put("/atualizar") {
+        call.respond(viagem.dados)
+    }
+}
