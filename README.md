@@ -4,3 +4,5 @@ API que ajuda o cliente a obter informações sobre o local em que ele pretende 
 Integrantes da API:
 
 Lucas Rabelo Pereira
+
+João Victor Resende
