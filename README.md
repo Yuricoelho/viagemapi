@@ -26,12 +26,6 @@ Em nossa API queremos proporcionar a melhor experiência para nossos clientes, v
 
 As informações geradas através dos pontos citados acima serão retornados ao cliente, mostrando a ele se é seguro ou não viajar para o local selecionado.
 
-Integrantes da API:
+Desenvolvedores da API:
 
-.Lucas Rabelo Pereira
-
-.João Victor Resende
-
-.Yuri Coelho
-
-.Matheus Nogueira
+.Lucas Rabelo Pereira   .João Victor Resende   .Yuri Coelho   .Matheus Nogueira
