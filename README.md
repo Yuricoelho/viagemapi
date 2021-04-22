@@ -1,6 +1,6 @@
 # Viagem API
 
-API que irá ajudar o cliente a obter dados e informações sobre o local que ele prentendo viajar, levando em consideração alguns pontos, como, por exemplo:
+API que irá ajudar o cliente a obter dados e informações sobre o local que ele prentende viajar, levando em consideração alguns pontos, como, por exemplo:
 
 ->Hoteis
 
@@ -18,10 +18,14 @@ API que irá ajudar o cliente a obter dados e informações sobre o local que el
 
 ->Comorbidades do cliente
 
-Em nossa API queremos a melhor experiência para nossos clientes, visando o bem estar em todo momento de sua viagem.
+Em nossa API queremos proporcionar a melhor experiência para nossos clientes, visando a qualidade e bem estar em todo momento da sua viagem.
 
 Integrantes da API:
 
-Lucas Rabelo Pereira
+.Lucas Rabelo Pereira
 
-João Victor Resende
+.João Victor Resende
+
+.Yuri Coelho
+
+.Matheus Nogueira
