@@ -1,6 +1,8 @@
 # Viagem API
 
-API que irá ajudar o cliente a obter dados e informações sobre o local que ele prentende viajar, levando em consideração alguns pontos, como, por exemplo:
+Em nossa API queremos proporcionar a melhor experiência para nossos clientes, visando a qualidade e bem estar em todo momento da sua viagem levando em consideração alguns pontos, conforme abaixo:
+
+->Condições climáticas do local;
 
 ->Hoteis;
 
@@ -18,11 +20,11 @@ API que irá ajudar o cliente a obter dados e informações sobre o local que el
 
 ->Campanha de vacinação do local;
 
-->Capacidade dos leitos de covid;
+->Estrutura do local para atender pessoas infectadas;
 
 ->Averiguar se o cliente possui alguma comorbidade que possa ser afetado com mais facilidade pela covid;
 
-Em nossa API queremos proporcionar a melhor experiência para nossos clientes, visando a qualidade e bem estar em todo momento da sua viagem.
+As informações geradas através dos pontos citados acima serão retornados ao cliente, mostrando a ele se é seguro ou não viajar para o local selecionado.
 
 Integrantes da API:
 
