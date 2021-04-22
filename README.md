@@ -28,4 +28,7 @@ As informações geradas através dos pontos citados acima serão retornados ao 
 
 Desenvolvedores da API:
 
-.Lucas Rabelo Pereira   .João Victor Resende   .Yuri Coelho   .Matheus Nogueira
+.Lucas Rabelo Pereira   
+.João Victor Resende   
+.Yuri Coelho   
+.Matheus Nogueira
