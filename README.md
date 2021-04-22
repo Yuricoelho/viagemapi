@@ -20,7 +20,7 @@ API que irá ajudar o cliente a obter dados e informações sobre o local que el
 
 ->Capacidade dos leitos de covid;
 
-->Averiguar se o cliente possui alguma comorbidade que possa ser afetado pela covid;
+->Averiguar se o cliente possui alguma comorbidade que possa ser afetado com mais facilidade pela covid;
 
 Em nossa API queremos proporcionar a melhor experiência para nossos clientes, visando a qualidade e bem estar em todo momento da sua viagem.
 
