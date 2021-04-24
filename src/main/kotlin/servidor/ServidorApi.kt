@@ -109,6 +109,7 @@ fun Route.deletarDados() {
 
 fun Route.atualizar() {
     put("/atualizar") {
-        call.respond(viagem.dados)
+        val post = call.receive<String>()
+        call.respondText { "Received $post from the post"}
     }
 }
