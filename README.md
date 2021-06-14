@@ -27,7 +27,7 @@ Observações: Mesmo que a localidade não esteja com problemas relacionados ao 
 
 <h3 align="center">🚀Tecnologias Usadas</h3>
 <h4> 
-	  Kotlin
+	  Java
 </h4>
 
 <h3 align="center">Status do Projeto</h3>
